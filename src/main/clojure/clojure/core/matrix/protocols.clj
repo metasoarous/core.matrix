@@ -818,6 +818,12 @@
   (label [m dim i] "Returns the label at a specific index along the given dimension")
   (labels [m dim] "Returns all labels along a given dimension, as a vector")) 
 
+(defprotocol PLabelIndex
+  (li-labels [this] "In order of index, return the labels")
+  (li-get [this i] "Get label with a given index")
+  (li-index [this lname] "Get index corresponding to label name")
+  (li-assoc [this i lname] "Assoc in label at index i"))
+
 ;; ==========================================================
 ;; LINEAR ALGEBRA PROTOCOLS
 

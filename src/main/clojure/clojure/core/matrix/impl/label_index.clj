@@ -1,10 +1,5 @@
-(ns clojure.core.matrix.impl.label-index)
-
-(defprotocol PLabelIndex
-  (li-labels [this] "In order of index, return the labels")
-  (li-get [this i] "Get label with a given index")
-  (li-index [this lname] "Get index corresponding to label name")
-  (li-assoc [this i lname] "Assoc in label at index i"))
+(ns clojure.core.matrix.impl.label-index
+  (:require [clojure.core.matrix.protocols :as mp]))
 
 (deftype LabelIndex
   [^clojure.lang.IPersistentVector labels
@@ -12,7 +7,7 @@
   Object
   (toString [_]
     (str labels))
-  PLabelIndex
+  mp/PLabelIndex
   (li-labels [_]
     labels)
   (li-get [_ i]
